@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════════
- *  WASI-MD V7 DOCKER LOADER
+ *  Ruzzer-MD V7 DOCKER LOADER
  *  Pulls and runs the bot from Docker image (source code protected)
  *  © ITXXWASI - All Rights Reserved
  * ═══════════════════════════════════════════════════════════════════
@@ -13,7 +13,7 @@ const path = require('path');
 // Configuration
 const CONFIG = {
     DOCKER_IMAGE: process.env.DOCKER_IMAGE || 'mrwasi/wasimdv7:latest',
-    CONTAINER_NAME: 'wasi-md-v7-bot',
+    CONTAINER_NAME: 'Ruzzer-MD-bot',
     MAX_RETRIES: 3,
     RETRY_DELAY: 5000, // 5 seconds
     // Auto-detect Heroku and disable Docker by default (Heroku doesn't support Docker on standard dynos)
@@ -36,7 +36,7 @@ function isInsideDocker() {
         if (fs.existsSync(path.join(__dirname, 'index.js'))) {
             // Verify it's the actual bot code, not just a placeholder
             const content = fs.readFileSync(path.join(__dirname, 'index.js'), 'utf8');
-            if (content.includes('WASI-MD') || content.includes('baileys') || content.includes('makeWASocket')) {
+            if (content.includes('Ruzzer-MD') || content.includes('baileys') || content.includes('makeWASocket')) {
                 return true;
             }
         }
